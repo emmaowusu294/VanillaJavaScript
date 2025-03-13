@@ -6,9 +6,56 @@
     <title>Variables</title>
 </head>
 <body>
+    <p>
+        Cart Quantity
+    </p> 
+
+    <button onclick="
+        console.log(`Cart Quantity: ${cartQuantity}`);
+    
+    ">
+        Show Quantity
+    </button>
+
+    <button onclick="
+        cartQuantity++; // increment
+        console.log(`Cart Quantity: ${cartQuantity}`);
+    
+    ">
+        Add to Cart
+    </button>
+
+
+       
+    <button onclick="
+    cartQuantity = cartQuantity + 2; // increment
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    ">
+        Add 2 to Cart
+    </button>
+        
+
+    <button onclick="
+    cartQuantity = cartQuantity + 3; // increment
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    ">
+        +3
+    </button>
+
+    <button onclick="
+    cartQuantity = 0; // increment
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    console.log(`Cart was Reset`);
+    ">
+        Reset Cart
+    </button>
+
+
     
 </body>
 <!-- // Linking to the javascript -->
-    <script src="app.js"></script>
+    <script>
+        let cartQuantity = 0;
+    </script>
 </body>
 </html>
