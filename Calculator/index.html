@@ -97,10 +97,7 @@
 
 
     <div>
-            <button onclick="
-                calculation = '';
-                console.log('Calculator has been reset');
-            ">Clear</button>
+        <button onclick="resetCalculation();">Clear</button>
     </div>
    
     
@@ -108,12 +105,20 @@
 <script>
     // Your JavaScript code here
     // Handle button click events and perform calculations
-    let calculation = '';
+    let calculation = localStorage.getItem('calculation') || '';
 
     function updateCalculation(value)
     {
         calculation += value;
+
+        localStorage.setItem('calculation', calculation);
         console.log(calculation); 
+    }
+
+    function resetCalculation() {
+        calculation = '';
+        localStorage.removeItem('calculation');
+        console.log('Calculator has been reset');
     }
 </script>
 </html>
