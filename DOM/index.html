@@ -7,10 +7,16 @@
 </head>
 <body>
     <button>Hello</button>
-    <button> </button>
+    <button class="js-button">Second Butt</button>
+    
 </body>
     <script>
-        document.querySelector('button').innerHTML = 'HMM...';
+        document.querySelector('button').
+            innerHTML = 'HMM...';
+
+
+        const buttonElement = document.querySelector('.js-button');
+        buttonElement.innerHTML = 'Yo';
 
         /*
         console.log(document.title);
