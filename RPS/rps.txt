@@ -1,0 +1,4 @@
+The version 1 shows the scores through the alert ... so its 
+a popup.
+
+--The version 2 used the DOM to show the results on the screen
