@@ -12,7 +12,9 @@
     <button onclick="playGame('paper');">Paper</button>
 
     <button onclick="playGame('scissors');">Scissors</button>
-
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
     <button onclick="resetScore();">Reset Score</button>
 </body>
 
@@ -23,6 +25,8 @@
             losses: 0,
             ties: 0
         };
+
+        updateScoreElement();
 
     // If score object doesn't exist in local storage, initialize it
     /*
@@ -76,10 +80,25 @@
 
         localStorage.setItem('score', JSON.stringify(score));
 
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties} `);
-    }
 
+     
+        updateScoreElement();
+       
+        document.querySelector('.js-result')
+            .innerHTML = result;
+
+        
+        document.querySelector('.js-moves')
+        .innerHTML = `You ${playerMove} - ${computerMove} Computer`;
+
+        
+
+//         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
+// Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties} `);
+     }
+
+
+  
     function pickComputerMove() {
         // Computer Picking a move
         const randomNumber = Math.random();
@@ -104,7 +123,19 @@ Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties} `);
             ties: 0
         };
         localStorage.setItem('score', JSON.stringify(score));
-        alert('Game was reset');
+        // alert('Game was reset');
+
+        //call the function to update the score on the page
+        updateScoreElement();
+    }
+
+   
+
+   
+
+    function updateScoreElement() {
+        document.querySelector('.js-score')
+            .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties} `;
     }
 </script>
 </html>
