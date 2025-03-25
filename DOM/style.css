@@ -1,0 +1,44 @@
+body{
+    font-family: Arial;
+}
+
+.subscribeButton{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+
+    margin-bottom: 30px;
+}
+
+
+/* Thus when the button is clicked */
+.is-subscribed{
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
+
+.is-subscribed:hover{
+    background-color: rgb(177, 177, 177);
+}
+
+
+.costInput{
+    font-size: 15px;
+    padding: 10px 5px;
+}
+
+.calculate-button{
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 11px;
+    cursor: pointer;
+}
+
+
+/* Time 7:08  */
