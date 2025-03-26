@@ -184,13 +184,7 @@ function addTodoKeydown(event) {
 
 
 // VERSION 5 Adding css
-const todoList = [{
-    name :'make dinner', 
-    dueDateTime :'26/03/2025 09:37 pm'
-}, {
-    name :'wash dishes', 
-    dueDateTime :'27/04/2025 09:37 pm'
-}]; 
+const todoList = []; 
 
 renderTodoList();
 
@@ -199,9 +193,9 @@ function addTodo() {
     const name = inputElement.value;
 
     const dateInputElement = document.querySelector('.js-due-date-input');
-    let formattedDate = dateInputElement.value.replace("T", ""); // ✅ Fixed
+ 
 
-    const dueDateTime = formattedDate;
+    const dueDateTime = dateInputElement.value;
 
     todoList.push({ name, dueDateTime });
 
