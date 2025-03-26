@@ -8,14 +8,17 @@
 </head>
 <body>
     <p>Todo List</p>
-    <input class="js-name-input" 
-    placeholder="Todo Name" onkeydown="addTodoKeydown(event);">
 
-    <!-- <input type="date"> -->
-    <input type="datetime-local"
-    class="js-due-date-input">
+    <div class="todo-input-grid">
+        <input class="js-name-input name-input" 
+        placeholder="Todo Name" onkeydown="addTodoKeydown(event);">
 
-    <button onclick="addTodo();">Add</button>
+        <!-- <input type="date"> -->
+        <input type="datetime-local"
+        class="js-due-date-input due-date-input">
+
+        <button onclick="addTodo();" class="add-todo-button">Add</button>
+    </div>
 
 
     <div class="js-todo-list todo-grid"></div>
