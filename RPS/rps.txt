@@ -2,3 +2,5 @@ The version 1 shows the scores through the alert ... so its
 a popup. Also it uses local storage to store the results and json
 
 --The version 2 used the DOM to show the results on the screen
+
+--The version 3 adds the css styling
