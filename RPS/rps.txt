@@ -4,3 +4,5 @@ a popup. Also it uses local storage to store the results and json
 --The version 2 used the DOM to show the results on the screen
 
 --The version 3 adds the css styling
+
+--The version 4 uses advanced features like the autoplay
