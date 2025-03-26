@@ -184,7 +184,7 @@ function addTodoKeydown(event) {
 
 
 // VERSION 5 Adding css
-const todoList = []; 
+const todoList = JSON.parse(localStorage.getItem('activeTodoList')) || []; 
 
 renderTodoList();
 
@@ -203,6 +203,14 @@ function addTodo() {
     dateInputElement.value = '';
 
     renderTodoList();
+
+    saveToStorage();
+}
+
+function deleteTodo(i) {
+    todoList.splice(i, 1);
+    renderTodoList();
+    saveToStorage();
 }
 
 
@@ -219,8 +227,7 @@ function renderTodoList() {
             `<div>${name}</div>
              <div>${dueDateTime}</div>
              <button onclick = "
-             todoList.splice(${i}, 1);
-             renderTodoList();
+            deleteTodo();
              "class = "delete-todo-button">Delete</button>
             `;
         todoListHTML += html;
@@ -239,4 +246,9 @@ function addTodoKeydown(event) {
     if (event.key === 'Enter') {
         addTodo();
     }
+}
+
+
+function saveToStorage() {
+    localStorage.setItem('activeTodoList', JSON.stringify(todoList));
 }
