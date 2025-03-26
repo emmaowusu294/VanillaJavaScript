@@ -49,15 +49,24 @@
             // would be a string so we manually convert it into a number 
             let cost = Number(inputElement.value);
 
-            if(cost < 40)
-        {
+            if(cost < 40 && cost > 0){
             cost += 10;
-        }
-            
+        } 
 
-        document.querySelector('.js-total-cost')
+        if(cost < 0){
+            document.querySelector('.js-total-cost')
+            .innerHTML = `Error: cost cannot be less than $0`;
+        } else {
+            document.querySelector('.js-total-cost')
             .innerHTML = `$${cost}`;
         }
+
+            
+        
+            
+
+        
+    }
 
 
         function handleCostKeydown(event) {
