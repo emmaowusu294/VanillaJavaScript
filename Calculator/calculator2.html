@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <h1>Simple Calculator</h1>
 
-    <p class="js-displayCalc"></p>
+    <p class="js-displayCalc calculation"></p>
 
     <div>
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(1);
         ">1</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(2);
         ">2</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(3);
         ">3</button>
 
-        <button onclick="
+        <button class="yellow-button" onclick="
         updateCalculation(' + ');
         ">+</button>
 
@@ -34,19 +34,19 @@
 
 
     <div>
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(4);
         ">4</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(5);
         ">5</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(6);
         ">6</button>
 
-        <button onclick="
+        <button class="yellow-button" onclick="
         updateCalculation(' - ');
         ">-</button>
 
@@ -56,19 +56,19 @@
 
 
     <div>
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(7);
         ">7</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(8);
         ">8</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(9);
         ">9</button>
 
-        <button onclick="
+        <button class="yellow-button" onclick="
         updateCalculation(' * ');
         ">*</button>
 
@@ -77,20 +77,20 @@
 
 
     <div>
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation(0);
         ">0</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         updateCalculation('.');
         ">.</button>
 
-        <button onclick="
+        <button class="gray-button" onclick="
         calculation = eval(calculation);
         displayCalcalculation(); 
         ">=</button>
 
-        <button onclick="
+        <button class="yellow-button" onclick="
         updateCalculation(' / ');
         ">/</button>
 
@@ -99,35 +99,10 @@
 
 
     <div>
-        <button onclick="resetCalculation();">Clear</button>
+        <button class="gray-button clear" onclick="resetCalculation();">Clear</button>
     </div>
    
     
 </body>
-<script>
-    // Your JavaScript code here
-    // Handle button click events and perform calculations
-    let calculation = localStorage.getItem('calculation') || '';
-    displayCalcalculation();  // Display the initial calculation in the display area
-
-    function updateCalculation(value)
-    {
-        calculation += value;
-
-        localStorage.setItem('calculation', calculation);
-        displayCalcalculation(); 
-    }
-
-    function resetCalculation() {
-        calculation = '';
-        localStorage.removeItem('calculation');
-        displayCalcalculation();
-        alert('Calculator has been reset');
-    }
-
-    function displayCalcalculation() {
-        document.querySelector('.js-displayCalc')
-            .textContent = calculation;
-    }
-</script>
+<script src="scripts/calc.js"></script>
 </html>
