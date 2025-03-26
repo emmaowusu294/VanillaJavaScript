@@ -35,7 +35,13 @@ body{
     margin-top: 50px;
 }
 
+.reset-score-button{
+    background-color: white;
+    font-size: 15px;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-
-
-/* time 7:29 */
