@@ -35,7 +35,7 @@ body{
     margin-top: 50px;
 }
 
-.reset-score-button{
+.reset-score-button, .auto-play-button{
     background-color: white;
     font-size: 15px;
     color: black;
