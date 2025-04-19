@@ -113,7 +113,47 @@ function autoPlay() {
    
 }
 
+
+// Using addEventListener instead of the onclick
+document.querySelector('.js-rock-button')
+    .addEventListener('click', () => {
+        playGame('rock');
+    });
+
+
+document.querySelector('.js-paper-button')
+    .addEventListener('click', () => {
+        playGame('paper');
+    });
+
+
+document.querySelector('.js-scissors-button')
+    .addEventListener('click', () => {
+        playGame('scissors');
+    });
+
+document.querySelector('.js-reset-button')
+    .addEventListener('click', () => {
+        resetScore();
+    });
+
+
+document.querySelector('.js-auto-button')
+    .addEventListener('click', () => {
+        autoPlay();
+    });
   
+
+    document.body.addEventListener('keydown', (event) => {
+        // console.log(event.key);
+        if(event.key === 'r'){
+            playGame('rock');
+        } else if (event.key === 'p') {
+            playGame('paper');
+        } else if (event.key === 's'){
+            playGame('scissors');
+        }
+    });
 function pickComputerMove() {
     // Computer Picking a move
     const randomNumber = Math.random();
