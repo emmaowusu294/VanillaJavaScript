@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <button onclick="updateMessages();">
+        Add
+    </button>
+
+    <button>
+        Remove
+    </button>
+</body>
+    <script>
+        let messages = 0;
+        let setIntervalID;
+        function updateMessages() {
+            messages++;
+            console.log(messages);
+
+            clearInterval(setIntervalID);
+
+
+            setIntervalID = setInterval(function() {
+            if(document.title === 'App'){
+                document.title = `(${messages}) new messages`
+            } else {
+                document.title = 'App';
+            }
+        }, 2000)
+        }
+
+
+       
+    </script>
+</html>
