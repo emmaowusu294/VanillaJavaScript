@@ -5,6 +5,9 @@ import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import deliveryOptions from '../data/deliveryOptions.js';
 
 
+
+
+renderCartQuantity();
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -59,9 +62,11 @@ cart.forEach((cartItem) => {
                 <span>
                 Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                 </span>
-                <span class="update-quantity-link link-primary">
+                <span class="update-quantity-link link-primary js-update-quantity">
                 Update
                 </span>
+                <input class = "quantity-input ">
+                <span class = "save-quantity-link link-primary js-show">Save</span>
                 <span class="delete-quantity-link link-primary 
                 js-delete-link" data-product-id = "${matchingProduct.id}">
                 Delete
@@ -131,10 +136,30 @@ document.querySelectorAll('.js-delete-link')
                 (`.js-cart-item-container-${productId}`);
 
             container.remove();
+            renderCartQuantity();
+            
+            
+            
         })
     })
 
+  function renderCartQuantity () {
+    let cartQuantity = 0;
+    cart.forEach((cartItem) => {
+        cartQuantity += cartItem.quantity;
+    });
+    // console.log(cartQuantity);
 
+    document.querySelector('.js-checkout-quantity')
+        .innerHTML = (`${cartQuantity} items`);
+  };
+
+// const updateLink = document.querySelector('.js-update-quantity');
+// updateLink.addEventListener('click', () => {
+//     document.querySelector('.js-show').
+//         classList.add('show');
+// })
+   
 /*
 document.querySelectorAll('.js-delivery-option')
     .forEach((element) => {

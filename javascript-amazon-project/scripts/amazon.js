@@ -2,6 +2,12 @@ import {cart, addToCart} from '../data/cart.js';
 import {products} from '../data/products.js'
 import { formatCurrency } from './utils/money.js';
 
+
+updateCartQuantity();
+// Show stored cart quantity on initial load
+document.querySelector('.js-cart-quantity')
+  .innerHTML = localStorage.getItem('cartQuantity') || 0;
+
 let productsHTML = ``;
 
 products.forEach((product) => {
@@ -28,7 +34,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -49,11 +55,14 @@ products.forEach((product) => {
             Added
           </div>
 
+          <div class="toast js-toast">Item added to cart ✅</div>
+
+
           <button class="add-to-cart-button button-primary 
           js-add-to-cart" data-product-id = "${product.id}">
             Add to Cart
           </button>
-        </div>`
+        </div>`;
 })
 
 // console.log(productsHTML);
@@ -61,21 +70,34 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid')
     .innerHTML = productsHTML;
 
-function updateCartQuantity() {
-    let cartQuantity = 0;
+
+ 
+    
+export function updateCartQuantity() {
+  let cartQuantity =  0;
+  
     cart.forEach((cartItem) => {
         cartQuantity += cartItem.quantity;
-    })
+    });
 
-
+    localStorage.setItem('cartQuantity', cartQuantity);
+    
   document.querySelector('.js-cart-quantity')
     .innerHTML = cartQuantity;
+
+    // console.log(cartQuantity);
 };
 
-function showAdded() {
-    
+
+
+
+function showAdded(productId) {
+ 
+  
     const addedMessages = document.querySelector(`.js-added-to-cart-${productId}`);
     addedMessages.classList.add('added-visible'); // ✅ Use quotes for the class name
+
+    
 
     
     
@@ -84,6 +106,18 @@ function showAdded() {
     }, 2000)
 };
 
+
+export function showToast(message) {
+  const toast = document.querySelector('.js-toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000); // hides after 2 secs
+};
+
+
    
 document.querySelectorAll('.js-add-to-cart')
     .forEach((button) => {
@@ -91,7 +125,8 @@ document.querySelectorAll('.js-add-to-cart')
             const productId = button.dataset.productId;
             addToCart(productId);
             updateCartQuantity();
-            showAdded();
+            showAdded(productId);
+            showToast("Added to Cart");
           });
         });
     
