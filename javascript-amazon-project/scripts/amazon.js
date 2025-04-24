@@ -13,7 +13,7 @@ let productsHTML = ``;
 products.forEach((product) => {
     productsHTML += `<div class="product-container">
           <div class="product-image-container">
-            <img class="product-image"
+            <img class="product-image" 
               src="${product.image}">
           </div>
 
@@ -23,14 +23,14 @@ products.forEach((product) => {
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars * 10}.png">
+              src="${product.gerStarsUrl()}">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${formatCurrency(product.priceCents)}
+            ${product.getPrice()}
           </div>
 
           <div class="product-quantity-container">
