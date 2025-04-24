@@ -9,7 +9,7 @@ import { renderPaymentSummary } from './paymentSummary.js';
 
 
 
-
+ 
 export function renderOrderSummary () {
 
     let cartSummaryHTML = '';
@@ -161,7 +161,7 @@ export function renderOrderSummary () {
 
 
 
-function renderCartQuantity () {
+export function renderCartQuantity () {
     let cartQuantity = 0;
     cart.forEach((cartItem) => {
         cartQuantity += cartItem.quantity;
@@ -170,5 +170,7 @@ function renderCartQuantity () {
 
     document.querySelector('.js-checkout-quantity')
         .innerHTML = (`${cartQuantity} items`);
+
+    return cartQuantity;
 };
 renderCartQuantity();
