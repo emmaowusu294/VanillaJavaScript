@@ -36,7 +36,31 @@ class Product {
   getPrice () {
     return `$${formatCurrency(this.priceCents)}`;
   }
+
+  extraInfoHTML () {
+    return '';
+  }
 }
+
+// Clothing inheriting from the parent class Product
+class Clothing extends Product{
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails);
+    this.sizeChartLink = productDetails.sizeChartLink
+  }
+
+  // method overiding
+  extraInfoHTML() {
+    return `
+      <a href = "${this.sizeChartLink}" target = "_blank">
+        Size Chart
+      </a>
+    `;
+  }
+}
+
 
 
 
@@ -700,7 +724,12 @@ export const products = [
       "mens"
     ]
   }
-].map((productDetails) => {
+].map((productDetails) => {  // creates new array with these features
+  if (productDetails.type === 'clothing') {
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });
+
+
 

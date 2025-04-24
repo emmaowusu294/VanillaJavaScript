@@ -54,6 +54,8 @@ products.forEach((product) => {
             <img src="images/icons/checkmark.png">
             Added
           </div>
+        
+          ${product.extraInfoHTML()}
 
           <div class="toast js-toast">Item added to cart ✅</div>
 
